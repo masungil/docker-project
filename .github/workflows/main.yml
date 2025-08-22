@@ -37,8 +37,7 @@ jobs:
           ssh-keyscan -t ed25519 54.180.101.131 >> ~/.ssh/known_hosts
           ssh-keyscan -t rsa 54.180.101.131 >> ~/.ssh/known_hosts
           ls -la  ~/.ssh/known_hosts
-          ls -la  ../frontend/index.html
-          scp ../frontend/index.html ubuntu@54.180.101.131:~/step3/frontend
+          scp frontend/index.html ubuntu@54.180.101.131:~/step3/frontend
   deploy:
     needs: build-docker-image
     name: deploy
