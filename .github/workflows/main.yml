@@ -36,4 +36,7 @@ jobs:
       - name: 서비스 실행
         run: |
           cd /home/ubuntu/step3
+          git clone https://github.com/masungil/docker-project
+          cp docker-project/frontend/index.html frontend
+          rm -rf docker-project
           docker compose up -d 
