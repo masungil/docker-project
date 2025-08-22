@@ -20,7 +20,8 @@ services:
 
   # 2. FastAPI 백엔드 서비스
   backend:
-    build: ./backend # ./backend 디렉토리의 Dockerfile을 사용하여 이미지 빌드
+#    build: ./backend # ./backend 디렉토리의 Dockerfile을 사용하여 이미지 빌드
+    image: masungil/backend:latest
     container_name: backend
     environment:
       - DB_HOST=db
