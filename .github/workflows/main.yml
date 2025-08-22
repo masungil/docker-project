@@ -27,11 +27,17 @@ jobs:
 
       - name: 개인키 인증서 파일 생성 
         run: |
+          ls -la
           mkdir -p ~/.ssh
+          ls ~/.ssh
           echo ${{ secrets.SSH_KEY }} > ~/.ssh/id_rsa
+          ls ~/.ssh/id_rsa
           chmod 400 ~/.ssh/id_rsa
+          ls -la ~/.ssh/id_rsa
           ssh-keyscan -t ed25519 54.180.101.131 >> ~/.ssh/known_hosts
           ssh-keyscan -t rsa 54.180.101.131 >> ~/.ssh/known_hosts
+          ls -la  ~/.ssh/known_hosts
+          ls -la  ../frontend/index.html
           scp ../frontend/index.html ubuntu@54.180.101.131:~/step3/frontend
   deploy:
     needs: build-docker-image
