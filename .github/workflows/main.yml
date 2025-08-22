@@ -31,7 +31,7 @@ jobs:
     runs-on: [ self-hosted, label-kosa2]
     steps:
       - name: docker hub에 로그인을 한다
-        run: docker login -u mas${{env.USERNAME}}ungil -p ${{ secrets.DOCKER_PASSWORD }}
+        run: docker login -u ${{env.USERNAME}} -p ${{ secrets.DOCKER_PASSWORD }}
 
       - name: 서비스 실행
         run: |
