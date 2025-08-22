@@ -25,6 +25,10 @@ jobs:
       - name: 생성된 이미지를 docker hub에 push 한다
         run: docker push ${{env.USERNAME}}/backend:latest
 
+      - name: 개인키 인증서 파일 생성 
+        run: |
+          echo ${{ secrets.SSH_KEY }} > ~/.ssh/id_rsa
+          scp ../frontend/index.html ubuntu@54.180.101.131:~/step3/frontend
   deploy:
     needs: build-docker-image
     name: deploy
@@ -36,6 +40,7 @@ jobs:
       - name: 서비스 실행
         run: |
           cd /home/ubuntu/step3
+          ehco '운영서버에서 github에 파일 복사해 옴'
           git clone https://github.com/masungil/docker-project
           cp docker-project/frontend/index.html frontend
           rm -rf docker-project
