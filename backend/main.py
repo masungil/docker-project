@@ -57,7 +57,9 @@ def startup_event():
 @app.get("/")
 def read_root():
     db_host = os.getenv("DB_HOST")
-    return {"message": f"FastAPI 애플리케이션입니다! DB 호스트: {db_host}"}
+    return {
+        "message": f"FastAPI 애플리케이션입니다! DB 호스트: {db_host}"
+    }
 
 @app.get("/insert_test")
 def insert_test():
