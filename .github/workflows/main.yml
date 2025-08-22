@@ -40,8 +40,8 @@ jobs:
       - name: 서비스 실행
         run: |
           cd /home/ubuntu/step3
-          ehco '운영서버에서 github에 파일 복사해 옴'
-          git clone https://github.com/masungil/docker-project
-          cp docker-project/frontend/index.html frontend
-          rm -rf docker-project
           docker compose up -d 
+          #ehco '운영서버에서 github에 파일 복사해 옴'
+          #git clone https://github.com/masungil/docker-project
+          #cp docker-project/frontend/index.html frontend
+          #rm -rf docker-project
